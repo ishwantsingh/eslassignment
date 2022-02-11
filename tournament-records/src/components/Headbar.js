@@ -6,7 +6,6 @@ const Header = styled.div`
   margin: 0;
   text-align: center;
   display: initial;
-  // display: flex;
   flex-direction: column;
   justify-content: center;
   background: #1D1D1B;
@@ -52,6 +51,7 @@ const StickyNavbar = styled.div`
   position: sticky;
   top: 0;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 20%);
+  z-index: 20;
   .sub-container {
     width: 80%;
     height: 100%;
@@ -67,7 +67,6 @@ const StickyNavbar = styled.div`
       padding: 8px 0;
       float: left;
       margin-right: 0;
-      // overflow: hidden;
     }
     .history {
       display: flex;
@@ -97,12 +96,12 @@ const StickyNavbar = styled.div`
     .secondary-button {
       border: 0;
       background: 0;
-      font-family: font-family: "Open Sans",sans-serif;
+      font-family: "Open Sans",sans-serif;
       color: #454116;
       font-size: 0.875em;
     }
     .primary-button {
-      font-family: font-family: "Open Sans",sans-serif;
+      font-family: "Open Sans",sans-serif;
       color: #454116;
       font-size: 0.875em;
       padding: 0.5em 1em;
@@ -116,7 +115,6 @@ const StickyNavbar = styled.div`
       text-align: center;
       text-decoration: none;
       font-weight: 500;
-      // overflow: hidden;
       box-shadow: 0 0 0 1px rgb(0 0 0 / 20%);
     }
 `

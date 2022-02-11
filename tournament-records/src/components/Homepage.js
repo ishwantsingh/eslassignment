@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import Records from './Records'
+
 const Container = styled.div`
   height: 100%;
   display: flex;
@@ -26,6 +28,13 @@ const Container = styled.div`
     // margin-bottom: -20px;
     background-color: rgba(255,255,255,.1)!important;
   }
+  .sub-container {
+    width: 96%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 function Homepage() {
@@ -33,7 +42,9 @@ function Homepage() {
     <Container>
       <br/>
       <div className="translucent">
-
+        <div className="sub-container">
+          <Records />
+        </div>
       </div>
     </Container>
   );
