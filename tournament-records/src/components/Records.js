@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import moment from "moment";
 
 import Record from "./Record";
 
 const Container = styled.div`
-  width: 50%;
+  width: 60%;
   display: ${prop => prop.searchQueried? "flex" : "none"};
   flex-direction: column;
   justify-content: center;
@@ -85,7 +86,7 @@ function Records(props) {
                 {props.tournamentDetails? props.tournamentDetails.name.full: "name"}
             </h4>
             <p className="tournament-date">
-            {props.tournamentDetails? props.tournamentDetails.timeline.inProgress.begin : "Date"}
+            {props.tournamentDetails?moment(props.tournamentDetails.timeline.inProgress.begin).format("Do MMMM YYYY") : "Date"}
             </p>
           </div>
           <div className="tournament-records">

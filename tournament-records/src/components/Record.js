@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import moment from "moment";
 
 const ListItem = styled.div`
   width: 100%;
@@ -77,7 +78,7 @@ function Record(props) {
       return (
         <ListItem>
             <p className="record-time">
-              {props.match? props.match.beginAt: "12:51"}k
+              {props.match? moment(props.match.beginAt).format('LT'): "12:51"}
             </p>
             {/* <p>d</p> */}
             <div className="team winner">
