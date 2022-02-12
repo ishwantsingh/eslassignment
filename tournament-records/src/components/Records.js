@@ -4,7 +4,7 @@ import Record from "./Record";
 
 const Container = styled.div`
   width: 50%;
-  display: flex;
+  display: ${prop => prop.searchQueried? "flex" : "none"};
   flex-direction: column;
   justify-content: center;
   text-align: center;
@@ -70,9 +70,9 @@ const Container = styled.div`
   }
 `;
 
-function Records() {
+function Records(props) {
   return (
-    <Container>
+    <Container searchQueried={props.searchQueried}>
       <div className="tournament-heading">
         <h4 className="tournament-name">
             R6: Siege (PC) 5on5 Open Cup #55 Spain

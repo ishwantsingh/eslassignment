@@ -1,3 +1,4 @@
+import React , {Component} from "react";
 import styled from "styled-components";
 
 import Homepage from "./components/Homepage"
@@ -10,13 +11,24 @@ const Container = styled.div`
   text-align: center;
 `;
 
-function App() {
-  return (
-    <Container>
-      <Headbar />
-      <Homepage />
-    </Container>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    //all data recieved from API is stored in the state. So only 1 call is made
+    this.state = {
+      loading: false,
+      searched: false
+    };
+  }
+  render() {  
+    return (
+      <Container>
+        <Headbar />        
+        <Homepage searchQueried={this.state.searched}/>
+      </Container>
+    );
+  }
 }
 
 export default App;

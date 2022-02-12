@@ -38,14 +38,14 @@ const Container = styled.div`
   }
 `;
 
-function Homepage() {
+function Homepage(props) {
   return (
     <Container>
       <br/>
       <div className="translucent">
         <div className="sub-container">
           <SearchBar />
-          <Records />
+          <Records searchQueried={props.searchQueried}/>
         </div>
       </div>
     </Container>
@@ -53,3 +53,6 @@ function Homepage() {
 }
 
 export default Homepage;
+
+// {this.state.loading? <Spinner />  //spinner is displayed when the api call is in 'Loading' state
+//         :
