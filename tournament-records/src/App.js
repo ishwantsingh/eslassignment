@@ -3,12 +3,14 @@ import styled from "styled-components";
 
 import Homepage from "./components/Homepage"
 import Headbar from "./components/Headbar"
+import Footer from "./components/Footer";
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
   margin: 0 auto;
   text-align: center;
+  position: relative;
 `;
 
 class App extends Component {
@@ -88,6 +90,8 @@ class App extends Component {
         <Headbar />        
         <Homepage isLoading={this.state.loading} searchQueried={this.state.searched} searchItems={this.searchItemHandler} tournamentDetails={this.state.tournamentDetails}
          matches={this.state.matches}  contestants={this.state.contestants}/>
+         <div style={{clear: "both"}}></div>
+        <Footer />
       </Container>
     );
   }

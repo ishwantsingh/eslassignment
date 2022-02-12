@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 30%;
-  display:"flex";
+  display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
@@ -10,6 +10,8 @@ const Container = styled.div`
   font-family: "Open Sans",sans-serif;
   border-radius: 2px;
   background: #FFFFFF;
+  padding-top: 15px;
+  padding-bottom: 40px;
   border-bottom: 6px solid #28B662;
   h4,p {
     margin: 0;
@@ -33,14 +35,14 @@ const Container = styled.div`
   }
   ul.links-list {
     list-style-type: disc;
+    padding-left: 27px;
   }
   .heading {
     display: inline-block;
-    font-size: 1.25rem;
+    font-size: 1.15em;
     border-bottom: 2px solid #1D1D1B;
     font-weight: normal;
     font-family: "Open Sans",sans-serif;
-    margin-top: 10px;
   }
   .record-list {
       border-radius: 2px;

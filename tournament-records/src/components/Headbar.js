@@ -1,5 +1,6 @@
-import menuImage from "../assets/menu.png"
 import styled from "styled-components";
+
+import menuImage from "../assets/menu.png"
 
 const Header = styled.div`
   width: 100%;
@@ -37,6 +38,7 @@ const Header = styled.div`
   }
   .highlighted-text {
     color: #FAFA09;
+    font-weight: 600;
   }
 
 `;

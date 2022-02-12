@@ -21,7 +21,7 @@ const Container = styled.div`
   z-index: 0;
   margin-top: 0px;
   display: table;
-  position: absolute;
+  // position: absolute;
   top: 90px!important;
   box-sizing: border-box;
   margin-bottom: -20px;
@@ -31,6 +31,8 @@ const Container = styled.div`
     height: 100%;
     border-radius: 5px;
     margin: 0px auto;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
     background-color: rgba(255,255,255,.1)!important;
   }
   .sub-container {

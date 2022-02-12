@@ -4,11 +4,12 @@ const StyledSearchBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: calc(100% - 6px);
   padding: 16px 0;
   background-color: white;
   border-radius: 2px;
   margin-top: 20px;
+  border-left: 6px solid #28B662;
   .image1 {
     margin: 0 auto;
     width: 100%;
