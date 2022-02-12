@@ -20,6 +20,7 @@ class App extends Component {
       loading: false,
       searched: false,
       matchApi: "https://api.eslgaming.com/play/v1/leagues/",
+      upcomingMatchesApi: "https://api.eslgaming.com/play/v1/leagues?types=cup,ffa,premiership,swiss&states=upcoming&tags=&path=/play/&includeHidden=0&skill_levels=pro_qualifier,open,pro,major&limit.total=20"
     };
   }
 

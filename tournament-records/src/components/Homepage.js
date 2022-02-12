@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import Records from './Records'
 import SearchBar from "./Searchbar";
+import EslBanner from "./EslBanner";
+import UpcomingTournaments from "./UpcomingTournaments";
 
 const Container = styled.div`
   height: 100%;
@@ -38,6 +40,14 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
   }
+  .content-bottom {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 function Homepage(props) {
@@ -47,8 +57,12 @@ function Homepage(props) {
       <div className="translucent">
         <div className="sub-container">
           <SearchBar searchItems={props.searchItems}/>
-          <Records isLoading={props.isLoading} searchQueried={props.searchQueried} tournamentDetails={props.tournamentDetails}
-         matches={props.matches}  contestants={props.contestants}/>
+          <div className="content-bottom">
+            <Records isLoading={props.isLoading} searchQueried={props.searchQueried} tournamentDetails={props.tournamentDetails}
+            matches={props.matches}  contestants={props.contestants}/>
+            <UpcomingTournaments />
+            <EslBanner />
+          </div>
         </div>
       </div>
     </Container>
