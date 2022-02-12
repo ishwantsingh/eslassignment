@@ -71,29 +71,45 @@ const Container = styled.div`
 `;
 
 function Records(props) {
-  return (
-    <Container searchQueried={props.searchQueried}>
-      <div className="tournament-heading">
-        <h4 className="tournament-name">
-            R6: Siege (PC) 5on5 Open Cup #55 Spain
-        </h4>
-        <p className="tournament-date">
-            21st March 2018
-        </p>
+  if(!props.tournamentDetails && props.isLoading) {
+    return (
+      <div>
+        Loading...
       </div>
-      <div className="tournament-records">
-        <div className="date-containter">
-            <div className="date-sort">Date ▴</div>
-        </div>
-        <div className="record-list">
-          <Record />  
-          <Record />  
-          <Record />  
-          <Record />  
-        </div>
-      </div>
-    </Container>
-  );
+    )
+  } else {
+      return (
+        <Container searchQueried={props.searchQueried}>
+          <div className="tournament-heading">
+            <h4 className="tournament-name">
+                {props.tournamentDetails? props.tournamentDetails.name.full: "name"}
+            </h4>
+            <p className="tournament-date">
+            {props.tournamentDetails? props.tournamentDetails.timeline.inProgress.begin : "Date"}
+            </p>
+          </div>
+          <div className="tournament-records">
+            <div className="date-containter">
+                <div className="date-sort">Date ▴</div>
+            </div>
+            <div className="record-list">
+              {console.log("matches",props.matches)}
+              {props.matches && props.matches.map((match) => {
+                return (
+                  <Record key={match.id} match={match} contestants={props.contestants} />  
+                )
+              })}
+              
+              {/* <Record />  
+              <Record />  
+              <Record />  
+              <Record />  */}
+            </div>
+          </div>
+        </Container>
+      );
+  }
+  
 }
 
 export default Records;

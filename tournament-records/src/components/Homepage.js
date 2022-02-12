@@ -5,8 +5,7 @@ import SearchBar from "./Searchbar";
 
 const Container = styled.div`
   height: 100%;
-  display: flex;
-  justify-content: center;
+  width: 100%;
   text-align: center;
   background-image: url("https://cdn.eslgaming.com/misc/gfx/media/play/region/global/r6/r6-branding.jpg");
   background-position: top center;
@@ -19,14 +18,17 @@ const Container = styled.div`
   left: 0;
   z-index: 0;
   margin-top: 0px;
-  display: block;
+  display: table;
+  position: absolute;
+  top: 90px!important;
+  box-sizing: border-box;
+  margin-bottom: -20px;
   .translucent{
     position: relative;
     width: 65%;
     height: 100%;
     border-radius: 5px;
     margin: 0px auto;
-    // margin-bottom: -20px;
     background-color: rgba(255,255,255,.1)!important;
   }
   .sub-container {
@@ -44,8 +46,9 @@ function Homepage(props) {
       <br/>
       <div className="translucent">
         <div className="sub-container">
-          <SearchBar />
-          <Records searchQueried={props.searchQueried}/>
+          <SearchBar searchItems={props.searchItems}/>
+          <Records isLoading={props.isLoading} searchQueried={props.searchQueried} tournamentDetails={props.tournamentDetails}
+         matches={props.matches}  contestants={props.contestants}/>
         </div>
       </div>
     </Container>

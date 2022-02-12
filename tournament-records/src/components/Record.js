@@ -57,22 +57,45 @@ const ListItem = styled.div`
   }
 `;
 
-function Record() {
-  return (
-    <ListItem>
-        <p className="record-time">
-            12:51
-        </p>
-        <div className="team winner">
-            <p className="team-name">Black Lotus</p>
-            <p className="winner-score">4</p>
-        </div>
-        <div className="team loser">
-            <p className="team-name">Team Chandra</p>
-            <p className="loser-score">2</p>
-        </div>
-    </ListItem>
-  );
+function Record(props) {
+  if(props.isLoading) {
+    return (
+      <div>
+        Loading...
+      </div>
+    )
+  } else if(props.contestants && props.match) {
+    // console.log("ooga parti",props)
+    let contestantsArray = props.contestants;
+    // console.log("booga con array",contestantsArray)
+    let contestant1 = contestantsArray.find(contestant => contestant.id === props.match.participants[0].id);
+    let contestant2 = contestantsArray.find(contestant => contestant.id === props.match.participants[1].id);
+    // console.log("booga ooga con1",contestant1.name)
+    // console.log("ooga booga con2",contestant2.name)
+    let score1 = props.match.participants[0].points[0]
+    let score2 = props.match.participants[1].points[0]
+      return (
+        <ListItem>
+            <p className="record-time">
+              {props.match? props.match.beginAt: "12:51"}k
+            </p>
+            {/* <p>d</p> */}
+            <div className="team winner">
+                <p className="team-name">{contestant1? contestant1["name"]:"Deleted Account"}</p>
+                <p className="winner-score">{score1}</p>
+                {/* <p>o</p> */}
+            </div>
+            <div className="team loser">
+                <p className="team-name">{contestant2? contestant2["name"]: "Deleted Account"}</p>
+                <p className="loser-score">{score2}</p>
+                {/* <p>o</p> */}
+
+            </div>
+        </ListItem>
+      );
+  } else {
+    return <div>Loading...</div>
+  }
 }
 
 export default Record;

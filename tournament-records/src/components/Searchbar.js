@@ -41,7 +41,8 @@ const SearchButton = styled.button`
     font-family: "Open Sans",sans-serif;
     color: #454116;
     font-size: 0.9em;
-    padding: 0.5em 5em;
+    height: 40px;
+    padding: 0em 4vw;
     line-height: 48px;
     background: #ffeb09;
     border-radius: 3px;
@@ -62,9 +63,10 @@ function SearchBar(props) {
         <SearchInput
           type="text"
           placeholder="Type Tournament/League ID"
+          id="search-bar"
         //   onKeyDown={props.searchItems} //runs search function in App.js on each key press
         />
-        <SearchButton>Search</SearchButton>
+        <SearchButton onClick={e => props.searchItems(e)}>Search</SearchButton>
       </StyledInput>
     </StyledSearchBar>
   );
