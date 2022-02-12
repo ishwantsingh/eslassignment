@@ -1,4 +1,3 @@
-import menuImage from "./assets/menu.png"
 import styled from "styled-components";
 
 import Homepage from "./components/Homepage"

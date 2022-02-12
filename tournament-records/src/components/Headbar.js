@@ -106,16 +106,16 @@ const StickyNavbar = styled.div`
       font-size: 0.875em;
       padding: 0.5em 1em;
       line-height: 48px;
-      background: #F5E000;
+      background: #ffeb09;
       border-radius: 3px;
-      border: 2px solid #F5E000;
+      border: 2px solid #ffeb09;
       cursor: pointer;
       vertical-align: middle;
       line-height: 1;
       text-align: center;
       text-decoration: none;
       font-weight: 500;
-      box-shadow: 0 0 0 1px rgb(0 0 0 / 20%);
+      box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
     }
 `
 

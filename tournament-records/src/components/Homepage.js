@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import Records from './Records'
+import SearchBar from "./Searchbar";
 
 const Container = styled.div`
   height: 100%;
@@ -43,6 +44,7 @@ function Homepage() {
       <br/>
       <div className="translucent">
         <div className="sub-container">
+          <SearchBar />
           <Records />
         </div>
       </div>
