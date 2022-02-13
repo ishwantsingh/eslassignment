@@ -21,8 +21,7 @@ class App extends Component {
     this.state = {
       loading: false,
       searched: false,
-      matchApi: "https://api.eslgaming.com/play/v1/leagues/",
-      upcomingMatchesApi: "https://api.eslgaming.com/play/v1/leagues?types=cup,ffa,premiership,swiss&states=upcoming&tags=&path=/play/&includeHidden=0&skill_levels=pro_qualifier,open,pro,major&limit.total=20"
+      matchApi: "https://api.eslgaming.com/play/v1/leagues/"
     };
   }
 
@@ -42,12 +41,16 @@ class App extends Component {
       return res.json();
     })
     .then((data) => {
-        this.setState({ matches: data, searched: true, loading: false}); //returned data stored in state
+        this.setState({ matches: data, searched: true}); //returned data stored in state
+        return true;
+    })
+    .then(() => {
+      this.setState({loading: false})
     })
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
         //alert in case of network error
-        window.alert("Error fetching data. Please try cheching your internet connection and refreshing the page.")
+        // window.alert("Error fetching data. Please try cheching your internet connection and refreshing the page.")
         this.setState({loading: false});
       });
 

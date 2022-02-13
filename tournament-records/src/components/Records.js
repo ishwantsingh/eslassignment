@@ -73,12 +73,22 @@ const Container = styled.div`
   .record-list {
       border-radius: 2px;
   }
+  .rotate {
+    transform: rotate(180deg);
+  }
 `;
 
-function Records(props) {
-  const [isAscending, setDateSort] = useState(true);
+class Records extends React.Component {
+  constructor(props){
+    super(props);
 
-  function compareDatesAsc( a, b ) {
+    this.state = {
+      isAscending: true,
+      matchArray: []
+    }
+  }
+
+  compareDatesAsc = ( a, b ) => {
     if ( a["beginAt"] < b["beginAt"]){
       return -1;
     }
@@ -87,7 +97,7 @@ function Records(props) {
     }
     return 0;
   }
-  function compareDatesDsc( a, b ) {
+  compareDatesDsc = ( a, b ) => {
     if ( a["beginAt"] > b["beginAt"]){
       return -1;
     }
@@ -96,48 +106,67 @@ function Records(props) {
     }
     return 0;
   }
-  if (props.matches && isAscending === true)  {
-    var matchArray = props.matches.sort(compareDatesAsc);
-  } else if (props.matches && isAscending === false) {
-    var matchArray = props.matches.sort(compareDatesDsc);
-  }
-  if(!props.tournamentDetails && props.isLoading) {
-    return (
-      <div>
-        Loading...
-      </div>
-    )
-  } else {
-      return (
-        <Container searchQueried={props.searchQueried}>
-          <div className="tournament-heading">
-            <h4 className="tournament-name">
-                {props.tournamentDetails? props.tournamentDetails.name.full: "name"}
-            </h4>
-            <p className="tournament-date">
-            {props.tournamentDetails?moment(props.tournamentDetails.timeline.inProgress.begin).format("Do MMMM YYYY") : "Date"}
-            </p>
-          </div>
-          <div className="tournament-records">
-            <div className="date-containter">
-                <div className="date-sort" onClick={isAscending === true ? () => setDateSort(false) : () => setDateSort(true)}>
-                  Date 
-                  <img src={polygon} alt="arrow"/>
-                </div>
-            </div>
-            <div className="record-list">
-              {console.log("matches",props.matches)}
-              {props.matches && matchArray.map((match) => {
-                return (
-                  <Record key={match.id} match={match} contestants={props.contestants} />  
-                )
-              })}
-            </div>
-          </div>
-        </Container>
-      );
+
+  setDateSort = (isAscending) => {
+    this.setState({isAscending: isAscending});
+    if (this.props.matches && this.state.isAscending === true)  {
+
+      this.setState({matchArray: this.props.matches.sort(this.compareDatesAsc)}); 
+      document.querySelector(".date-arrow").classList.remove("rotate")
+
+    } else if (this.props.matches && this.state.isAscending === false) {
+
+      this.setState({matchArray: this.props.matches.sort(this.compareDatesDsc)});
+      document.querySelector(".date-arrow").classList.add("rotate")
+
+    }
   }
   
+  render() {
+    if( this.props.isLoading ||!this.props.tournamentDetails ||!this.props.matches) {
+      return (
+        <Container searchQueried={this.props.searchQueried}>
+          <div>
+            Loading...
+          </div>
+        </Container>
+      )
+    } else {
+        return (
+          <Container searchQueried={this.props.searchQueried}>
+            <div className="tournament-heading">
+              <h4 className="tournament-name">
+                  {this.props.tournamentDetails? this.props.tournamentDetails.name.full: "name"}
+              </h4>
+              <p className="tournament-date">
+              {this.props.tournamentDetails?moment(this.props.tournamentDetails.timeline.inProgress.begin).format("Do MMMM YYYY") : "Date"}
+              </p>
+            </div>
+            <div className="tournament-records">
+              <div className="date-containter">
+                  <div className="date-sort" onClick={this.state.isAscending === true ? () => this.setDateSort(false) : () => this.setDateSort(true)}>
+                    Date 
+                    <img className="date-arrow" src={polygon} alt="arrow"/>
+                  </div>
+              </div>
+              <div className="record-list">
+                {console.log("matches",this.props.matches)}
+                {this.props.matches && this.state.isAscending === true?
+                  this.props.matches.sort(this.compareDatesAsc).map((match) => {
+                    return (
+                      <Record key={match.id} match={match} contestants={this.props.contestants} />  
+                    )
+                  }) : this.props.matches.sort(this.compareDatesDsc).map((match) => {
+                    return (
+                      <Record key={match.id} match={match} contestants={this.props.contestants} />  
+                    )
+                  })}
+              </div>
+            </div>
+          </Container>
+        );
+    }
+  }  
 }
 
 export default Records;
