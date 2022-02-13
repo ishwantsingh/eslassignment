@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 30%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   margin-top: 20px;
   font-family: "Open Sans",sans-serif;

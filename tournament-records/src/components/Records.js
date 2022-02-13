@@ -4,7 +4,7 @@ import moment from "moment";
 import Record from "./Record";
 
 const Container = styled.div`
-  width: 60%;
+  width: 98%;
   display: ${prop => prop.searchQueried? "flex" : "none"};
   flex-direction: column;
   justify-content: center;
@@ -42,6 +42,7 @@ const Container = styled.div`
     width: 92%;
     margin: 0 auto;
     margin-bottom: 10px;
+    padding-bottom: 10px;
   }
   .tournament-records {
     margin-top: 20px;
@@ -100,11 +101,6 @@ function Records(props) {
                   <Record key={match.id} match={match} contestants={props.contestants} />  
                 )
               })}
-              
-              {/* <Record />  
-              <Record />  
-              <Record />  
-              <Record />  */}
             </div>
           </div>
         </Container>

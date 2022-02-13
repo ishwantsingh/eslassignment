@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const StyledSearchBar = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: calc(100% - 6px);
@@ -9,6 +10,7 @@ const StyledSearchBar = styled.div`
   background-color: white;
   border-radius: 2px;
   margin-top: 20px;
+  padding-bottom: 40px;
   border-left: 6px solid #28B662;
   .image1 {
     margin: 0 auto;
@@ -16,6 +18,18 @@ const StyledSearchBar = styled.div`
   }
   .seachBar {
     margin: 0 auto;
+  }
+  .tournament-heading {
+    font-size: 1.3em;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 4px 0 20px 20px;
+    width: 70%;
+    background: #FFFFFF;
+    border-radius: 2px;
+    align-self: flex-start;
   }
 `;
 
@@ -27,11 +41,12 @@ const StyledInput = styled.div`
 
 const SearchInput = styled.input`
   height: 40px;
-  width: 70%;
+  width: 75%;
   background-color: rgb(250, 250, 250);
   border: 1px solid rgb(230, 230, 230);
   border-radius: 3px;
   margin: 0em auto;
+  margin-left: 10px;
   padding: 0px;
   display: flex;
   align-self: flex-start;
@@ -60,10 +75,13 @@ const SearchButton = styled.button`
 function SearchBar(props) {
   return (
     <StyledSearchBar>
+      <div className="tournament-heading">
+          Find Tournament Records
+      </div>
       <StyledInput>
         <SearchInput
           type="text"
-          placeholder="Type Tournament/League ID"
+          placeholder="Enter Tournament/League ID"
           id="search-bar"
         //   onKeyDown={props.searchItems} //runs search function in App.js on each key press
         />

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Records from './Records'
 import SearchBar from "./Searchbar";
 import EslBanner from "./EslBanner";
-import UpcomingTournaments from "./UpcomingTournaments";
+import InfoPanels from "./InfoPanels";
 
 const Container = styled.div`
   height: 100%;
@@ -50,6 +50,14 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
   }
+  .content-left {
+    width: 68%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 `;
 
 function Homepage(props) {
@@ -60,9 +68,11 @@ function Homepage(props) {
         <div className="sub-container">
           <SearchBar searchItems={props.searchItems}/>
           <div className="content-bottom">
-            <Records isLoading={props.isLoading} searchQueried={props.searchQueried} tournamentDetails={props.tournamentDetails}
-            matches={props.matches}  contestants={props.contestants}/>
-            <UpcomingTournaments />
+            <div className="content-left">
+              <Records isLoading={props.isLoading} searchQueried={props.searchQueried} tournamentDetails={props.tournamentDetails}
+              matches={props.matches}  contestants={props.contestants}/>
+              <InfoPanels searchQueried={props.searchQueried}/>
+            </div>
             <EslBanner />
           </div>
         </div>
