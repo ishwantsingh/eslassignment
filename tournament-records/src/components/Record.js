@@ -80,10 +80,10 @@ function Record(props) {
       var winnerScore = score1;
       var loserScore = score2;
     } else {
-      var winner = contestant2;
-      var loser = contestant1;
-      var winnerScore = score2;
-      var loserScore = score1;
+      winner = contestant2;
+      loser = contestant1;
+      winnerScore = score2;
+      loserScore = score1;
     }
       return (
         <ListItem>

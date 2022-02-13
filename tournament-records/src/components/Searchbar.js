@@ -10,7 +10,7 @@ const StyledSearchBar = styled.div`
   background-color: white;
   border-radius: 2px;
   margin-top: 20px;
-  padding-bottom: 32px;
+  padding-bottom: 36px;
   border-left: 6px solid #28B662;
   .image1 {
     margin: 0 auto;
@@ -25,7 +25,7 @@ const StyledSearchBar = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 4px 0 20px 20px;
+    margin: 4px 0 16px 20px;
     width: 70%;
     background: #FFFFFF;
     border-radius: 2px;
@@ -54,7 +54,7 @@ const SearchInput = styled.input`
 `;
 
 const SearchButton = styled.button`
-    font-family: "Open Sans",sans-serif;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     color: #454116;
     font-size: 0.9em;
     height: 40px;
