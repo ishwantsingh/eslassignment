@@ -11,7 +11,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 25px;
   font-family: "Open Sans",sans-serif;
   border-radius: 2px;
   h4,p {
@@ -75,9 +75,9 @@ const PrimaryButton = styled.button`
     margin: 10px auto;
     margin-bottom: 25px;
     line-height: 48px;
-    background: #ffeb09;
+    background: #ffff09;
     border-radius: 3px;
-    border: 2px solid #ffeb09;
+    border: 2px solid #ffff09;
     cursor: pointer;
     vertical-align: middle;
     line-height: 1;
@@ -85,6 +85,16 @@ const PrimaryButton = styled.button`
     text-decoration: none;
     font-weight: 500;
     box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+    &:hover {
+      background: #ffeb09;
+      border: 2px solid #ffeb09;
+      transition: 0.2s all ease-in;
+      font-size: 0.94em;
+    }
+    a {
+      text-decoration: none !important;
+      color: #454116;
+    }
 `
 
 function InfoPanels(props) {
@@ -98,7 +108,7 @@ function InfoPanels(props) {
                     <img className="floating-image" src={anykey} alt="any-kay cap"/>
                     Video games and esports should be welcoming and inclusive to all. We invite you to join us in creating a gaming ecosystem that includes all, no matter their shape, size, color, gender, background, disability, or beliefs.
                 </p>
-                <PrimaryButton>Take the pledge!</PrimaryButton>
+                <PrimaryButton><a href="https://www.anykey.org/en/pledge">Take the pledge!</a></PrimaryButton>
             </SubContainer>
             <SubContainer>
                 <div className="heading">
@@ -108,7 +118,7 @@ function InfoPanels(props) {
                 <img className="floating-image" src={staff} alt="staff wanted"/>
                 We are looking for players who like to support their favorite game. If you like to help other people or have any other talent, apply to become a staff member. A friendly team likes to welcome you!
                 </p>
-                <PrimaryButton>Join the Staff!</PrimaryButton>
+                <PrimaryButton><a href="https://play.eslgaming.com/global/join-the-staff">Join the Staff!</a></PrimaryButton>
             </SubContainer>
         </Container>
     );

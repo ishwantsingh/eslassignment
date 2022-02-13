@@ -103,14 +103,14 @@ const StickyNavbar = styled.div`
       font-size: 0.875em;
     }
     .primary-button {
-      font-family: "Open Sans",sans-serif;
+      font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
       color: #454116;
       font-size: 0.875em;
       padding: 0.5em 1em;
       line-height: 48px;
-      background: #ffeb09;
+      background: #ffff09;
       border-radius: 3px;
-      border: 2px solid #ffeb09;
+      border: 2px solid #ffff09;
       cursor: pointer;
       vertical-align: middle;
       line-height: 1;
@@ -118,6 +118,14 @@ const StickyNavbar = styled.div`
       text-decoration: none;
       font-weight: 500;
       box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+      margin-left: 5px;
+    }
+    .primary-button:hover {
+      background: #ffeb09;
+      border: 2px solid #ffeb09;
+      transition: 0.2s all ease-in;
+      font-size: 0.885em;
+      margin-left: 4px;
     }
 `
 

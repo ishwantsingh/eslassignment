@@ -10,7 +10,7 @@ const StyledSearchBar = styled.div`
   background-color: white;
   border-radius: 2px;
   margin-top: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 32px;
   border-left: 6px solid #28B662;
   .image1 {
     margin: 0 auto;
@@ -58,11 +58,12 @@ const SearchButton = styled.button`
     color: #454116;
     font-size: 0.9em;
     height: 40px;
+    width: 11.5vw;
     padding: 0em 4vw;
     line-height: 48px;
-    background: #ffeb09;
+    background: #ffff09;
     border-radius: 3px;
-    border: 2px solid #ffeb09;
+    border: 2px solid #ffff09;
     cursor: pointer;
     vertical-align: middle;
     line-height: 1;
@@ -70,6 +71,12 @@ const SearchButton = styled.button`
     text-decoration: none;
     font-weight: 500;
     box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+    &:hover {
+        background: #ffeb09;
+        border: 2px solid #ffeb09;
+        transition: 0.2s all ease-in;
+        font-size: 0.95em;
+      }
 `
 
 function SearchBar(props) {

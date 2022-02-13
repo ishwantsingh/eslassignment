@@ -7,7 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 25px;
   font-family: "Open Sans",sans-serif;
   border-radius: 2px;
   background: #FFFFFF;
@@ -73,6 +73,9 @@ const Container = styled.div`
         stroke: #1D1D1B;
         stroke-width: 1;
       }
+  }
+  .link:hover {
+    text-decoration: underline;
   }
 `;
 
