@@ -2,6 +2,7 @@ import styled from "styled-components";
 import moment from "moment";
 
 import Record from "./Record";
+import polygon from "../assets/polygon.svg"
 
 const Container = styled.div`
   width: 98%;
@@ -64,8 +65,9 @@ const Container = styled.div`
     margin: 16px 0 0 0;
     height: 30px;
     width: 62px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    cursor: pointer;
   }
   .record-list {
       border-radius: 2px;
@@ -92,7 +94,10 @@ function Records(props) {
           </div>
           <div className="tournament-records">
             <div className="date-containter">
-                <div className="date-sort">Date ▴</div>
+                <div className="date-sort">
+                  Date 
+                  <img src={polygon} alt="arrow"/>
+                </div>
             </div>
             <div className="record-list">
               {console.log("matches",props.matches)}

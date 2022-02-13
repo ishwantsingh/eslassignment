@@ -51,9 +51,8 @@ const Container = styled.div`
     justify-content: space-between;
   }
   .content-left {
-    width: 68%;
+    width: 69%;
     height: 100%;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
