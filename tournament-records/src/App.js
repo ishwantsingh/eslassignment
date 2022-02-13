@@ -30,9 +30,6 @@ class App extends Component {
 
   searchItemHandler = async e => {
     let searchTerm = e.target.previousElementSibling.value;
-    console.log(searchTerm)
-
-
 
     fetch(this.state.matchApi+`${searchTerm}/results`, {
       method: 'GET'
@@ -42,13 +39,13 @@ class App extends Component {
       this.props.getMatches();
       this.props.getContestants()
       if (!res.ok) {
-        this.setState({loading: false});
+        // this.setState({loading: false});
         throw new Error('Network response was not ok');
       }
       return res.json();
     })
     .then((data) => {
-        this.setState({ matches: data, searched: true,loading: false}); //returned data stored in state
+        // this.setState({ matches: data, searched: true,loading: false}); //returned data stored in state
         this.props.getMatchesComplete(data);
         return true;
     })
@@ -56,7 +53,7 @@ class App extends Component {
         console.error('There has been a problem with your fetch operation:', error);
         //alert in case of network error
         // window.alert("Error fetching data. Please try cheching your internet connection and refreshing the page.")
-        this.setState({loading: false});
+        // this.setState({loading: false});
       });
 
 
@@ -70,12 +67,12 @@ class App extends Component {
       return res.json();
     })
     .then((data) => {
-        this.setState({ contestants: data,loading: false}); //returned data stored in state
+        // this.setState({ contestants: data,loading: false}); //returned data stored in state
         this.props.getContestantsComplete(data);
     })
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
-        this.setState({loading: false});
+        // this.setState({loading: false});
       });
 
 
@@ -90,23 +87,23 @@ class App extends Component {
       return res.json();
     })
     .then((data) => {
-        this.setState({ tournamentDetails: data,loading: false}); //returned data stored in state
-        console.log("tourni details", data)
+        // this.setState({ tournamentDetails: data,loading: false}); //returned data stored in state
         this.props.getTournamentDetailsComplete(data);
     })
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
-        this.setState({loading: false});
+        // this.setState({loading: false});
       });
   };
 
   render() {  
     const {data} = this.props;
+    console.log("data",data)
     return (
       <Container>
         <Headbar />        
-        <Homepage isLoading={this.state.loading} searchQueried={this.state.searched} searchItems={this.searchItemHandler} tournamentDetails={this.state.tournamentDetails}
-         matches={this.state.matches}  contestants={this.state.contestants}/>
+        <Homepage isLoading={data.loading} searchQueried={data.hasSearched} searchItems={this.searchItemHandler} tournamentDetails={data.tournamentDetails}
+         matches={data.matches}  contestants={data.contestants}/>
          <div style={{clear: "both"}}></div>
         <Footer />
       </Container>
@@ -115,8 +112,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("state",state)
   return {
-    data: state.reducer
+    data: state
   };
 };
 const mapDispatchToProps = dispatch => {

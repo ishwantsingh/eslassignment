@@ -12,7 +12,7 @@ const Container = styled.div`
   justify-content: center;
   text-align: center;
   margin-top: 20px;
-  font-family: "Open Sans",sans-serif;
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   border-radius: 2px;
   h4,p {
     margin: 0;
@@ -33,7 +33,7 @@ const Container = styled.div`
     color: #333333;
     line-height: 29px;
     margin: 15px auto;
-    margin-bottom: 0;
+    margin-bottom: 4px;
     text-align: left;
   }
   .tournament-date {
@@ -108,22 +108,24 @@ class Records extends React.Component {
   }
 
   setDateSort = (isAscending) => {
+    console.log("check", isAscending,this.props.matches)
     this.setState({isAscending: isAscending});
-    if (this.props.matches && this.state.isAscending === true)  {
+    if (this.props.matches && isAscending === true)  {
+      console.log("ck 2")
 
-      this.setState({matchArray: this.props.matches.sort(this.compareDatesAsc)}); 
+      this.setState({matchArray: [...this.props.matches].sort(this.compareDatesAsc)}); 
       document.querySelector(".date-arrow").classList.remove("rotate")
 
-    } else if (this.props.matches && this.state.isAscending === false) {
-
-      this.setState({matchArray: this.props.matches.sort(this.compareDatesDsc)});
+    } else if (this.props.matches && isAscending === false) {
+      console.log("working")
+      this.setState({matchArray: [...this.props.matches].sort(this.compareDatesDsc)});
       document.querySelector(".date-arrow").classList.add("rotate")
 
     }
   }
   
   render() {
-    if( this.props.isLoading ||!this.props.tournamentDetails ||!this.props.matches) {
+    if( this.props.isLoading || !this.props.tournamentDetails ||!this.props.matches) {
       return (
         <Container searchQueried={this.props.searchQueried}>
           <div>
@@ -136,7 +138,7 @@ class Records extends React.Component {
           <Container searchQueried={this.props.searchQueried}>
             <div className="tournament-heading">
               <h4 className="tournament-name">
-                  {this.props.tournamentDetails? this.props.tournamentDetails.name.full: "name"}
+                {this.props.tournamentDetails ? this.props.tournamentDetails["name"]["full"]: "name"}
               </h4>
               <p className="tournament-date">
               {this.props.tournamentDetails?moment(this.props.tournamentDetails.timeline.inProgress.begin).format("Do MMMM YYYY") : "Date"}
@@ -150,13 +152,12 @@ class Records extends React.Component {
                   </div>
               </div>
               <div className="record-list">
-                {console.log("matches",this.props.matches)}
                 {this.props.matches && this.state.isAscending === true?
-                  this.props.matches.sort(this.compareDatesAsc).map((match) => {
+                  [...this.props.matches].sort(this.compareDatesAsc).map((match) => {
                     return (
                       <Record key={match.id} match={match} contestants={this.props.contestants} />  
                     )
-                  }) : this.props.matches.sort(this.compareDatesDsc).map((match) => {
+                  }) : [...this.props.matches].sort(this.compareDatesDsc).map((match) => {
                     return (
                       <Record key={match.id} match={match} contestants={this.props.contestants} />  
                     )

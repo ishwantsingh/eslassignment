@@ -1,7 +1,7 @@
 const initialState = {
-    matches: [],
-    tournamentDetails: [],
-    contestants: [],
+    matches: null,
+    tournamentDetails: null,
+    contestants: null,
     isLoading: false,
     hasSearched: false,
 
@@ -28,7 +28,6 @@ export default function stateReducer(state = initialState, action) {
                 hasSearched: true
             };
         case "GET_TOURNAMENT_DETAILS_COMPLETE":
-            console.log("payload",action.payload)
             return {
                 ...state,
                 tournamentDetails: action.payload.tournamentDetails,

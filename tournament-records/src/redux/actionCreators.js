@@ -15,9 +15,9 @@ export const getMatches = () => {
 export const getTournamentDetailsComplete = (tournamentDetails) => {
     return {
       type: "GET_TOURNAMENT_DETAILS_COMPLETE",
-        payload: {
+      payload: {
             tournamentDetails
-        }
+      }
     };
 };
 export const getTournamentDetails = () => {
