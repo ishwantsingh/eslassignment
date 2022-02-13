@@ -1,3 +1,4 @@
+import React, {useState} from "react";
 import styled from "styled-components";
 import moment from "moment";
 
@@ -75,6 +76,31 @@ const Container = styled.div`
 `;
 
 function Records(props) {
+  const [isAscending, setDateSort] = useState(true);
+
+  function compareDatesAsc( a, b ) {
+    if ( a["beginAt"] < b["beginAt"]){
+      return -1;
+    }
+    if ( a["beginAt"] > b["beginAt"]){
+      return 1;
+    }
+    return 0;
+  }
+  function compareDatesDsc( a, b ) {
+    if ( a["beginAt"] > b["beginAt"]){
+      return -1;
+    }
+    if ( a["beginAt"] < b["beginAt"]){
+      return 1;
+    }
+    return 0;
+  }
+  if (props.matches && isAscending === true)  {
+    var matchArray = props.matches.sort(compareDatesAsc);
+  } else if (props.matches && isAscending === false) {
+    var matchArray = props.matches.sort(compareDatesDsc);
+  }
   if(!props.tournamentDetails && props.isLoading) {
     return (
       <div>
@@ -94,14 +120,14 @@ function Records(props) {
           </div>
           <div className="tournament-records">
             <div className="date-containter">
-                <div className="date-sort">
+                <div className="date-sort" onClick={isAscending === true ? () => setDateSort(false) : () => setDateSort(true)}>
                   Date 
                   <img src={polygon} alt="arrow"/>
                 </div>
             </div>
             <div className="record-list">
               {console.log("matches",props.matches)}
-              {props.matches && props.matches.map((match) => {
+              {props.matches && matchArray.map((match) => {
                 return (
                   <Record key={match.id} match={match} contestants={props.contestants} />  
                 )
