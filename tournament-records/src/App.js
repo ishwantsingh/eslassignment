@@ -31,9 +31,21 @@ class App extends Component {
   searchItemHandler = async e => {
     let searchTerm = e.target.previousElementSibling.value;
 
-    fetch(this.state.matchApi+`${searchTerm}/results`, {
-      method: 'GET'
-    })
+    // if (typeof searchTerm !== Number) {
+    //   window.alert("Please enter an appropriate number as the League ID")
+    // }
+    var requestOptions = {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        // 'Content-Type': 'application/json',
+        // "Access-Control-Allow-Headers" : "Content-Type",
+        // "Access-Control-Allow-Origin": "https://localhost:3000",
+      },
+      redirect: 'follow'
+    };
+
+    fetch(this.state.matchApi+`${searchTerm}/results`, requestOptions)
     .then(res => {
       // this.setState({loading: true});
       this.props.getMatches();
@@ -52,17 +64,19 @@ class App extends Component {
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
         //alert in case of network error
-        // window.alert("Error fetching data. Please try cheching your internet connection and refreshing the page.")
+        window.alert("Error fetching data. Please try cheching the League ID you entered.")
         // this.setState({loading: false});
       });
 
 
 
-    fetch(this.state.matchApi+`${searchTerm}/contestants`, {
-      method: 'GET',
-    })
+    fetch(this.state.matchApi+`${searchTerm}/contestants`, requestOptions)
     .then(res => {
       // this.setState({loading: true});
+      if (!res.ok) {
+        // this.setState({loading: false});
+        throw new Error('Network response was not ok');
+      }
       this.props.getContestants();
       return res.json();
     })
@@ -72,17 +86,20 @@ class App extends Component {
     })
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
+        window.alert("Error fetching data. Please try cheching the League ID you entered.")
         // this.setState({loading: false});
       });
 
 
 
     
-    fetch(this.state.matchApi+`${searchTerm}`, {
-      method: 'GET',
-    })
+    fetch(this.state.matchApi+`${searchTerm}`, requestOptions)
     .then(res => {
       // this.setState({loading: true});
+      if (!res.ok) {
+        // this.setState({loading: false});
+        throw new Error('Network response was not ok');
+      }
       this.props.getTournamentDetails();
       return res.json();
     })
@@ -92,6 +109,7 @@ class App extends Component {
     })
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
+        window.alert("Error fetching data. Please try cheching the League ID you entered.")
         // this.setState({loading: false});
       });
   };

@@ -14,6 +14,16 @@ const Container = styled.div`
   margin-top: 20px;
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   border-radius: 2px;
+  .no-matches {
+    display: ${prop => prop.matchesLength !== 0 ? "flex" : "none"};
+    width: 100%;
+    height: 5rem;
+    padding-top: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 2px;
+  }
   h4,p {
     margin: 0;
     text-align: left;
@@ -152,7 +162,8 @@ class Records extends React.Component {
                   </div>
               </div>
               <div className="record-list">
-                {this.props.matches && this.state.isAscending === true?
+                {/* {if(this.props.matches.length !== 0) {}} */}
+                {this.props.matches && this.props.matches.length !== 0 && this.state.isAscending === true?
                   [...this.props.matches].sort(this.compareDatesAsc).map((match) => {
                     return (
                       <Record key={match.id} match={match} contestants={this.props.contestants} />  
@@ -162,6 +173,9 @@ class Records extends React.Component {
                       <Record key={match.id} match={match} contestants={this.props.contestants} />  
                     )
                   })}
+                  <div className="no-matches" matchesLength={this.props.matches.length}>
+                    No matches found for this Tournament.
+                  </div>
               </div>
             </div>
           </Container>
