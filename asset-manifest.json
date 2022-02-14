@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/eslassignment/static/css/main.08acc3bb.css",
+    "main.js": "/eslassignment/static/js/main.56b2a68a.js",
+    "static/media/anykey.svg": "/eslassignment/static/media/anykey.204fde7bd948348a1ef984898051c43e.svg",
+    "index.html": "/eslassignment/index.html",
+    "static/media/polygon.svg": "/eslassignment/static/media/polygon.f7a956270ab7e0ab3b1fdf64e565bb75.svg",
+    "main.08acc3bb.css.map": "/eslassignment/static/css/main.08acc3bb.css.map",
+    "main.56b2a68a.js.map": "/eslassignment/static/js/main.56b2a68a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08acc3bb.css",
+    "static/js/main.56b2a68a.js"
+  ]
+}
