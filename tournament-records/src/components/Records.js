@@ -14,16 +14,6 @@ const Container = styled.div`
   margin-top: 20px;
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   border-radius: 2px;
-  .no-matches {
-    display: ${prop => prop.matchesLength !== 0 ? "flex" : "none"};
-    width: 100%;
-    height: 5rem;
-    padding-top: 0.2rem;
-    justify-content: center;
-    align-items: center;
-    background: #FFFFFF;
-    border-radius: 2px;
-  }
   h4,p {
     margin: 0;
     text-align: left;
@@ -88,13 +78,25 @@ const Container = styled.div`
   }
 `;
 
+const NoMatches = styled.div`
+  display: ${props => props.isarrayempty};
+  width: 100%;
+  height: 5rem;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 2px;
+`
+
 class Records extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
       isAscending: true,
-      matchArray: []
+      matchArray: [],
+      isArrayEmpty: false
     }
   }
 
@@ -173,9 +175,9 @@ class Records extends React.Component {
                       <Record key={match.id} match={match} contestants={this.props.contestants} />  
                     )
                   })}
-                  <div className="no-matches" matchesLength={this.props.matches.length}>
+                  <NoMatches isarrayempty={this.props.matches.length == 0 ? "flex" : "none"}>
                     No matches found for this Tournament.
-                  </div>
+                  </NoMatches>
               </div>
             </div>
           </Container>

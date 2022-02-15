@@ -18,8 +18,7 @@ export default function stateReducer(state = initialState, action) {
         case "GET_MATCHES_COMPLETE":
             return {
                 ...state,
-                matches: action.payload.matches,
-                isLoading: false
+                matches: action.payload.matches
             };
         case "GET_TOURNAMENT_DETAILS":
             return {
@@ -30,8 +29,7 @@ export default function stateReducer(state = initialState, action) {
         case "GET_TOURNAMENT_DETAILS_COMPLETE":
             return {
                 ...state,
-                tournamentDetails: action.payload.tournamentDetails,
-                isLoading: false,
+                tournamentDetails: action.payload.tournamentDetails
             };
         case "GET_CONTESTANTS":
             return {
@@ -42,7 +40,16 @@ export default function stateReducer(state = initialState, action) {
         case "GET_CONTESTANTS_COMPLETE":
             return {
                 ...state,
-                contestants: action.payload.contestants,
+                contestants: action.payload.contestants
+            };
+        case "REQUEST_COMPLETED":
+            return {
+                ...state,
+                isLoading: false,
+            };
+        case "REQUEST_FAILED":
+            return {
+                ...state,
                 isLoading: false,
             };
         default:

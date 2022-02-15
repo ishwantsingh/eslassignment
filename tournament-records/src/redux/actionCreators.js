@@ -39,4 +39,16 @@ export const getContestants = () => {
       type: "GET_CONTESTANTS"
     };
 };
+
+export const requestCompleted = () => {
+  return {
+    type: "REQUEST_COMPLETED"
+  };
+};
+export const requestFailed = () => {
+  return {
+    type: "REQUEST_FAILED"
+  };
+};
+  
   
