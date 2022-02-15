@@ -78,7 +78,7 @@ function Record(props) {
     return (
       <Spinner />
     )
-  } else if(props.match && props.match.state == "cancelled") {
+  } else if(props.match && props.match.state === "cancelled") {
     return (
       <NoMatches>
         This match was cancelled.

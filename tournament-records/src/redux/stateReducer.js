@@ -53,7 +53,6 @@ export default function stateReducer(state = initialState, action) {
                 matches: [],
                 tournamentDetails: null,
                 contestants: null,
-                isLoading: false,
                 hasSearched: false
             };
         default:
