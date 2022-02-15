@@ -79,11 +79,11 @@ const StickyNavbar = styled.div`
       width: 0%;
     }
     .menu {
-      width: 18%;
+      width: 38%;
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
     }
     .heading {
       display: flex;
@@ -106,8 +106,11 @@ const StickyNavbar = styled.div`
     .primary-button {
       font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
       color: #454116;
-      font-size: 0.875em;
-      padding: 0.5em 1em;
+      font-size: 0.875rem;
+      padding: 0;
+      width: 140px;
+      // padding: 0.5em 1em;
+      height: 32px;
       line-height: 48px;
       background: #ffff09;
       border-radius: 3px;
