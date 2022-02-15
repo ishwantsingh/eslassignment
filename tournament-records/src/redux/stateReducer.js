@@ -1,10 +1,9 @@
 const initialState = {
-    matches: null,
+    matches: [],
     tournamentDetails: null,
     contestants: null,
     isLoading: false,
-    hasSearched: false,
-
+    hasSearched: false
   };
   
 export default function stateReducer(state = initialState, action) {
@@ -45,12 +44,17 @@ export default function stateReducer(state = initialState, action) {
         case "REQUEST_COMPLETED":
             return {
                 ...state,
-                isLoading: false,
+                isLoading: false
             };
         case "REQUEST_FAILED":
             return {
                 ...state,
                 isLoading: false,
+                matches: [],
+                tournamentDetails: null,
+                contestants: null,
+                isLoading: false,
+                hasSearched: false
             };
         default:
         return state;

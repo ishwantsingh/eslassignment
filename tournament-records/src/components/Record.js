@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import moment from "moment";
 
+import Spinner from "./Spinner"
+
 const ListItem = styled.div`
   width: 100%;
   display: flex;
@@ -58,15 +60,33 @@ const ListItem = styled.div`
   }
 `;
 
+const NoMatches = styled.div`
+  display: flex;
+  width: 100%;
+  height: 5rem;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 2px;
+  border-bottom: 1px solid #E2E5EA;
+  padding-bottom: 10px;
+`
+
 function Record(props) {
   if(props.isLoading) {
     return (
-      <div>
-        Loading...
-      </div>
+      <Spinner />
+    )
+  } else if(props.match && props.match.state == "cancelled") {
+    return (
+      <NoMatches>
+        This match was cancelled.
+      </NoMatches>
     )
   } else if(props.contestants && props.match) {
 
+    console.log("453",props.match)
     let contestantsArray = props.contestants;
 
     let contestant1 = contestantsArray.find(contestant => contestant.id === props.match.participants[0].id);
@@ -100,8 +120,6 @@ function Record(props) {
             </div>
         </ListItem>
       );
-  } else {
-    return <div>Loading...</div>
   }
 }
 

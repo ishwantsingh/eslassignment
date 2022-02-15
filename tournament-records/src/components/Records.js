@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import moment from "moment";
+import { connect } from "react-redux";
 
 import Record from "./Record";
 import polygon from "../assets/polygon.svg"
+import Spinner from "./Spinner"
+import { componentsMounted } from "../redux/actionCreators";
 
 const Container = styled.div`
   width: 98%;
@@ -100,6 +103,10 @@ class Records extends React.Component {
     }
   }
 
+  componentDidMount = () => {
+    this.props.componentsMounted()
+  }
+
   compareDatesAsc = ( a, b ) => {
     if ( a["beginAt"] < b["beginAt"]){
       return -1;
@@ -137,15 +144,14 @@ class Records extends React.Component {
   }
   
   render() {
-    if( this.props.isLoading || !this.props.tournamentDetails ||!this.props.matches) {
+    if (this.props.isLoading || !this.props.searchQueried) {
       return (
         <Container searchQueried={this.props.searchQueried}>
-          <div>
-            Loading...
-          </div>
+          <Spinner />
         </Container>
       )
-    } else {
+    }
+    else if (this.props.tournamentDetails) {
         return (
           <Container searchQueried={this.props.searchQueried}>
             <div className="tournament-heading">
@@ -153,7 +159,7 @@ class Records extends React.Component {
                 {this.props.tournamentDetails ? this.props.tournamentDetails["name"]["full"]: "name"}
               </h4>
               <p className="tournament-date">
-              {this.props.tournamentDetails?moment(this.props.tournamentDetails.timeline.inProgress.begin).format("Do MMMM YYYY") : "Date"}
+              {this.props.tournamentDetails && this.props.tournamentDetails.timeline?moment(this.props.tournamentDetails.timeline.inProgress.begin).format("Do MMMM YYYY") : ""}
               </p>
             </div>
             <div className="tournament-records">
@@ -183,7 +189,16 @@ class Records extends React.Component {
           </Container>
         );
     }
+    else {
+      return null
+    }
   }  
 }
 
-export default Records;
+const mapDispatchToProps = dispatch => {
+  return {
+    componentsMounted: () => dispatch(componentsMounted()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Records);

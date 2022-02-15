@@ -51,4 +51,9 @@ export const requestFailed = () => {
   };
 };
   
+export const componentsMounted = () => {
+  return {
+    type: "COMPONENTS_MOUNTED"
+  };
+};
   
