@@ -105,21 +105,21 @@ function Record(props) {
       winnerScore = score2;
       loserScore = score1;
     }
-      return (
-        <ListItem>
-            <p className="record-time">
-              {props.match? moment(props.match.beginAt).format('LT'): "12:51"}
-            </p>
-            <div className="team winner">
-                <p className="team-name">{winner? winner["name"]:"Deleted Account"}</p>
-                <p className="winner-score">{winnerScore}</p>
-            </div>
-            <div className="team loser">
-                <p className="team-name">{loser? loser["name"]: "Deleted Account"}</p>
-                <p className="loser-score">{loserScore}</p>
-            </div>
-        </ListItem>
-      );
+    return (
+      <ListItem>
+        <p className="record-time">
+          {props.match? moment(props.match.beginAt).format('LT'): "12:51"}
+        </p>
+        <div className="team winner">
+          <p className="team-name">{winner? winner["name"]:"Deleted Account"}</p>
+          <p className="winner-score">{winnerScore}</p>
+        </div>
+        <div className="team loser">
+          <p className="team-name">{loser? loser["name"]: "Deleted Account"}</p>
+          <p className="loser-score">{loserScore}</p>
+        </div>
+      </ListItem>
+    );
   }
 }
 

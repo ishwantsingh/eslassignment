@@ -127,16 +127,14 @@ class Records extends React.Component {
   }
 
   setDateSort = (isAscending) => {
-    console.log("check", isAscending,this.props.matches)
     this.setState({isAscending: isAscending});
     if (this.props.matches && isAscending === true)  {
-      console.log("ck 2")
 
       this.setState({matchArray: [...this.props.matches].sort(this.compareDatesAsc)}); 
       document.querySelector(".date-arrow").classList.remove("rotate")
 
     } else if (this.props.matches && isAscending === false) {
-      console.log("working")
+
       this.setState({matchArray: [...this.props.matches].sort(this.compareDatesDsc)});
       document.querySelector(".date-arrow").classList.add("rotate")
 
@@ -152,42 +150,41 @@ class Records extends React.Component {
       )
     }
     else if (this.props.tournamentDetails) {
-        return (
-          <Container searchQueried={this.props.searchQueried}>
-            <div className="tournament-heading">
-              <h4 className="tournament-name">
-                {this.props.tournamentDetails ? this.props.tournamentDetails["name"]["full"]: "name"}
-              </h4>
-              <p className="tournament-date">
-              {this.props.tournamentDetails && this.props.tournamentDetails.timeline?moment(this.props.tournamentDetails.timeline.inProgress.begin).format("Do MMMM YYYY") : ""}
-              </p>
-            </div>
-            <div className="tournament-records">
-              <div className="date-containter">
-                  <div className="date-sort" onClick={this.state.isAscending === true ? () => this.setDateSort(false) : () => this.setDateSort(true)}>
-                    Date 
-                    <img className="date-arrow" src={polygon} alt="arrow"/>
-                  </div>
-              </div>
-              <div className="record-list">
-                {/* {if(this.props.matches.length !== 0) {}} */}
-                {this.props.matches && this.props.matches.length !== 0 && this.state.isAscending === true?
-                  [...this.props.matches].sort(this.compareDatesAsc).map((match) => {
-                    return (
-                      <Record key={match.id} match={match} contestants={this.props.contestants} />  
-                    )
-                  }) : [...this.props.matches].sort(this.compareDatesDsc).map((match) => {
-                    return (
-                      <Record key={match.id} match={match} contestants={this.props.contestants} />  
-                    )
-                  })}
-                  <NoMatches isarrayempty={this.props.matches.length == 0 ? "flex" : "none"}>
-                    No matches found for this Tournament.
-                  </NoMatches>
+      return (
+        <Container searchQueried={this.props.searchQueried}>
+          <div className="tournament-heading">
+            <h4 className="tournament-name">
+              {this.props.tournamentDetails ? this.props.tournamentDetails["name"]["full"]: "name"}
+            </h4>
+            <p className="tournament-date">
+            {this.props.tournamentDetails && this.props.tournamentDetails.timeline?moment(this.props.tournamentDetails.timeline.inProgress.begin).format("Do MMMM YYYY") : ""}
+            </p>
+          </div>
+          <div className="tournament-records">
+            <div className="date-containter">
+              <div className="date-sort" onClick={this.state.isAscending === true ? () => this.setDateSort(false) : () => this.setDateSort(true)}>
+                Date 
+                <img className="date-arrow" src={polygon} alt="arrow"/>
               </div>
             </div>
-          </Container>
-        );
+            <div className="record-list">
+              {this.props.matches && this.props.matches.length !== 0 && this.state.isAscending === true?
+                [...this.props.matches].sort(this.compareDatesAsc).map((match) => {
+                  return (
+                    <Record key={match.id} match={match} contestants={this.props.contestants} />  
+                  )
+                }) : [...this.props.matches].sort(this.compareDatesDsc).map((match) => {
+                  return (
+                    <Record key={match.id} match={match} contestants={this.props.contestants} />  
+                  )
+                })}
+                <NoMatches isarrayempty={this.props.matches.length == 0 ? "flex" : "none"}>
+                  No matches found for this Tournament.
+                </NoMatches>
+            </div>
+          </div>
+        </Container>
+      );
     }
     else {
       return null

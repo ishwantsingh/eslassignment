@@ -16,11 +16,11 @@ const Container = styled.div`
   font-size: 0.76rem;
   font-weight: normal;
   .partition {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: -40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -40px;
   }
   .footer-text {
     width: 30%;
@@ -34,19 +34,19 @@ const Container = styled.div`
 `;
 
 function Footer() {
-    return (
-        <Container>
-            <div className="partition">
-                <img src={eslLogo} alt="esl logo" />
-                <div className="footer-text">
-                    ESL Play is the world's largest independent league for esports. Established in 1997, we're proud to be the home to those who love competitive gaming.
-                </div>
-            </div>
-            <div className="trademark">
-                ESL is a brand of ESL Gaming GmbH. © 2022.
-            </div>
-        </Container>
-    );  
+  return (
+    <Container>
+      <div className="partition">
+        <img src={eslLogo} alt="esl logo" />
+        <div className="footer-text">
+            ESL Play is the world's largest independent league for esports. Established in 1997, we're proud to be the home to those who love competitive gaming.
+        </div>
+      </div>
+      <div className="trademark">
+        ESL is a brand of ESL Gaming GmbH. © 2022.
+      </div>
+    </Container>
+  );  
 }
 
 export default Footer;

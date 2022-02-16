@@ -29,13 +29,13 @@ const Image = styled.img`
     height: 200px;
 `
 const Spinner = () => {
-    return (
-        <Container>
-            <div className="loader">
-                    <Image src={loader}/>
-            </div>
-      </Container> 
-    )
+  return (
+    <Container>
+      <div className="loader">
+        <Image src={loader}/>
+      </div>
+    </Container> 
+  )
 }
 
 export default Spinner;

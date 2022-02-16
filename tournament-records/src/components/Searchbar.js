@@ -54,43 +54,42 @@ const SearchInput = styled.input`
 `;
 
 const SearchButton = styled.button`
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    color: #454116;
-    font-size: 0.9em;
-    height: 40px;
-    width: 11.5vw;
-    padding: 0em 4vw;
-    line-height: 48px;
-    background: #ffff09;
-    border-radius: 3px;
-    border: 2px solid #ffff09;
-    cursor: pointer;
-    vertical-align: middle;
-    line-height: 1;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 500;
-    box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
-    &:hover {
-        background: #ffeb09;
-        border: 2px solid #ffeb09;
-        transition: 0.2s all ease-in;
-        font-size: 0.95em;
-      }
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color: #454116;
+  font-size: 0.9em;
+  height: 40px;
+  width: 11.5vw;
+  padding: 0em 4vw;
+  line-height: 48px;
+  background: #ffff09;
+  border-radius: 3px;
+  border: 2px solid #ffff09;
+  cursor: pointer;
+  vertical-align: middle;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+  &:hover {
+    background: #ffeb09;
+    border: 2px solid #ffeb09;
+    transition: 0.2s all ease-in;
+    font-size: 0.95em;
+  }
 `
 
 function SearchBar(props) {
   return (
     <StyledSearchBar>
       <div className="tournament-heading">
-          Find Tournament Records
+        Find Tournament Records
       </div>
       <StyledInput>
         <SearchInput
           type="text"
           placeholder="Enter Tournament/League ID"
           id="search-bar"
-        //   onKeyDown={props.searchItems} //runs search function in App.js on each key press
         />
         <SearchButton onClick={e => props.searchItems(e)}>Search</SearchButton>
       </StyledInput>

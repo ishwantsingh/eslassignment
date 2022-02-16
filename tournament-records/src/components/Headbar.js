@@ -64,116 +64,115 @@ const StickyNavbar = styled.div`
     justify-content: space-around;
   }
   .esplay-logo {
-      width: 136px;
-      height: 48px;
-      padding: 8px 0;
-      float: left;
-      margin-right: 0;
-    }
-    .history {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-    }
-    .empty {
-      width: 0%;
-    }
-    .menu {
-      width: 38%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-end;
-      a {
-        color: #454116;
-        text-decoration: none !important;
-        cursor: pointer;
-        margin: 0;
-        padding: 0;
-        width: 50px;
-      }
-    }
-    .heading {
-      display: flex;
-      align-items: center;
-      padding-left: 10px;
-      margin-left: 15px;
-      border-left: 1px solid black;
-      width: 20rem;
-      height: 50%
-      font-size: 1.14rem;
-      font-weight: 500;
-    }
-    .secondary-button {
-      border: 0;
-      background: 0;
-      font-family: "Open Sans",sans-serif;
-      color: #454116;
-      font-size: 0.875em;
-    }
-    .secondary-button:hover {
-      font-size: 0.9rem;
-      font-weight: bold;
-    }
-    .primary-button {
-      font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-      color: #454116;
-      font-size: 0.875rem;
-      padding: 0;
-      width: 140px;
-      // padding: 0.5em 1em;
-      height: 32px;
-      line-height: 48px;
-      background: #ffff09;
-      border-radius: 3px;
-      border: 2px solid #ffff09;
-      cursor: pointer;
-      vertical-align: middle;
-      line-height: 1;
-      text-align: center;
-      text-decoration: none;
-      font-weight: 500;
-      box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
-      margin-left: 20px;
-      a {
-        display: inline-block;
-        width: 100px;
-        margin: 0 auto;
-      }
-    }
-    .primary-button:hover {
-      background: #ffeb09;
-      border: 2px solid #ffeb09;
-      transition: 0.2s all ease-in;
-      font-size: 0.885em;
-      margin-left: 20px;
-    }
+    width: 136px;
+    height: 48px;
+    padding: 8px 0;
+    float: left;
+    margin-right: 0;
+  }
+  .history {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .empty {
+    width: 0%;
+  }
+  .menu {
+    width: 38%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
     a {
-      display: flex;
-      flex-direction: row;
-      margin: 0;
-      width: 7vw;
+      color: #454116;
+      text-decoration: none !important;
       cursor: pointer;
+      margin: 0;
+      padding: 0;
+      width: 50px;
     }
-    .eslplay-logo {
-      width: 100%;
-      height: 100%;
+  }
+  .heading {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin-left: 15px;
+    border-left: 1px solid black;
+    width: 20rem;
+    height: 50%
+    font-size: 1.14rem;
+    font-weight: 500;
+  }
+  .secondary-button {
+    border: 0;
+    background: 0;
+    font-family: "Open Sans",sans-serif;
+    color: #454116;
+    font-size: 0.875em;
+  }
+  .secondary-button:hover {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  .primary-button {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color: #454116;
+    font-size: 0.875rem;
+    padding: 0;
+    width: 140px;
+    height: 32px;
+    line-height: 48px;
+    background: #ffff09;
+    border-radius: 3px;
+    border: 2px solid #ffff09;
+    cursor: pointer;
+    vertical-align: middle;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
+    margin-left: 20px;
+    a {
+      display: inline-block;
+      width: 100px;
+      margin: 0 auto;
     }
+  }
+  .primary-button:hover {
+    background: #ffeb09;
+    border: 2px solid #ffeb09;
+    transition: 0.2s all ease-in;
+    font-size: 0.885em;
+    margin-left: 20px;
+  }
+  a {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    width: 7vw;
+    cursor: pointer;
+  }
+  .eslplay-logo {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 
 
 function Headbar() {
   return (
-      <Header>
-        <div className="head-banner">
-          <img src={menuImage} className="menu-image" alt="menu"/>
-          <p><span className='highlighted-text'>ESL Play</span> is part of the ESL Gaming Network</p>
-        </div>
-        <StickyNavbar>
-          <div className="sub-container">
-            <div className="history">
-              <a href="#">
+    <Header>
+      <div className="head-banner">
+        <img src={menuImage} className="menu-image" alt="menu"/>
+        <p><span className='highlighted-text'>ESL Play</span> is part of the ESL Gaming Network</p>
+      </div>
+      <StickyNavbar>
+        <div className="sub-container">
+          <div className="history">
+            <a href="#">
               <svg className="eslplay-logo" viewBox="0 0 185 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M123.52 33H126.67V25.53H131.035C134.905 25.53 138.505 22.83 138.505 17.385V13.155C138.505 7.89 134.905 5.19 131.035 5.19H123.52V33ZM135.355 17.205C135.355 20.76 132.97 22.515 130.81 22.515H126.67V8.205H130.81C132.97 8.205 135.355 9.915 135.355 13.47V17.205ZM142.856 33H146.006V5.19H142.856V33ZM162.19 26.205C162.19 28.815 160.48 30.345 157.96 30.345C155.935 30.345 153.955 29.31 153.955 25.53V19.77C153.955 15.99 155.935 14.955 157.96 14.955C160.48 14.955 162.19 16.485 162.19 19.095V26.205ZM165.34 33V12.3H162.64L162.19 13.83C160.21 12.075 158.59 12.075 157.51 12.075C154.045 12.075 150.805 13.56 150.805 19.32V25.98C150.805 31.74 154.045 33.225 157.51 33.225C158.59 33.225 160.21 33.225 162.19 31.47L162.64 33H165.34ZM176.891 40.02L184.226 12.3H181.121L176.756 28.5L171.986 12.3H168.791L175.316 33.945L173.741 40.02H176.891Z" fill="#1D1D1B"></path>
                 <path fillRule="evenodd" clipRule="evenodd" d="M111.36 32.9513V26.4271H98.4105V4.92499H91.093V26.4275C91.093 30.0304 93.9597 32.9513 97.4957 32.9513H111.36Z" fill="black"></path>
@@ -182,20 +181,20 @@ function Headbar() {
                 <path fillRule="evenodd" clipRule="evenodd" d="M1 19.1117C1 28.5621 8.51905 36.2231 17.7938 36.2231C27.0686 36.2231 34.5877 28.5621 34.5877 19.1117C34.5877 9.66139 27.0686 2 17.7938 2C8.51905 2 1 9.66139 1 19.1117Z" fill="black"></path>
                 <path fillRule="evenodd" clipRule="evenodd" d="M5.79224 25.6C6.21599 26.4017 6.71368 27.157 7.27675 27.8552L26.6723 8.09255C24.4473 6.23103 21.6397 5.06733 18.5707 4.92499L5.79224 25.6ZM9.25109 29.8551C9.94178 30.4273 10.6873 30.9316 11.4796 31.3598L31.7028 18.3831C31.5802 15.2504 30.4514 12.3822 28.6353 10.1043L9.25109 29.8551ZM14.7495 32.614C23.5406 34.6072 30.1615 28.2721 31.404 21.9274L14.7495 32.614Z" fill="white"></path>
               </svg>
-              </a>
-              <p className="heading">Tournament Records</p>
-            </div>
-            <div className="empty">
-
-            </div>
-            <div className="menu">
-              <button className="secondary-button"><a href="https://play.eslgaming.com/help">Help</a></button>
-              <button className="secondary-button"><a href="https://play.eslgaming.com/search">Search</a></button>
-              <button className="primary-button"><a href="https://play.eslgaming.com/user/oauth2/login">Log in/Register</a></button>
-            </div>
+            </a>
+            <p className="heading">Tournament Records</p>
           </div>
-        </StickyNavbar>
-      </Header>
+
+          <div className="empty"></div>
+          
+          <div className="menu">
+            <button className="secondary-button"><a href="https://play.eslgaming.com/help">Help</a></button>
+            <button className="secondary-button"><a href="https://play.eslgaming.com/search">Search</a></button>
+            <button className="primary-button"><a href="https://play.eslgaming.com/user/oauth2/login">Log in/Register</a></button>
+          </div>
+        </div>
+      </StickyNavbar>
+    </Header>
   );
 }
 

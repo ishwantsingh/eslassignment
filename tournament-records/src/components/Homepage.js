@@ -81,6 +81,3 @@ function Homepage(props) {
 }
 
 export default Homepage;
-
-// {this.state.loading? <Spinner />  //spinner is displayed when the api call is in 'Loading' state
-//         :
