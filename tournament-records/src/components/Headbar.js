@@ -84,6 +84,14 @@ const StickyNavbar = styled.div`
       flex-direction: row;
       align-items: center;
       justify-content: flex-end;
+      a {
+        color: #454116;
+        text-decoration: none !important;
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        width: 50px;
+      }
     }
     .heading {
       display: flex;
@@ -102,6 +110,10 @@ const StickyNavbar = styled.div`
       font-family: "Open Sans",sans-serif;
       color: #454116;
       font-size: 0.875em;
+    }
+    .secondary-button:hover {
+      font-size: 0.9rem;
+      font-weight: bold;
     }
     .primary-button {
       font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -122,14 +134,19 @@ const StickyNavbar = styled.div`
       text-decoration: none;
       font-weight: 500;
       box-shadow: 0 2px 2px rgb(0 0 0 / 15%);
-      margin-left: 5px;
+      margin-left: 20px;
+      a {
+        display: inline-block;
+        width: 100px;
+        margin: 0 auto;
+      }
     }
     .primary-button:hover {
       background: #ffeb09;
       border: 2px solid #ffeb09;
       transition: 0.2s all ease-in;
       font-size: 0.885em;
-      margin-left: 4px;
+      margin-left: 20px;
     }
     a {
       display: flex;
@@ -172,9 +189,9 @@ function Headbar() {
 
             </div>
             <div className="menu">
-              <button className="secondary-button">Help</button>
-              <button className="secondary-button">Search</button>
-              <button className="primary-button">Log in/Register</button>
+              <button className="secondary-button"><a href="https://play.eslgaming.com/help">Help</a></button>
+              <button className="secondary-button"><a href="https://play.eslgaming.com/search">Search</a></button>
+              <button className="primary-button"><a href="https://play.eslgaming.com/user/oauth2/login">Log in/Register</a></button>
             </div>
           </div>
         </StickyNavbar>
