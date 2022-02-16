@@ -10,7 +10,7 @@ import { componentsMounted } from "../redux/actionCreators";
 
 const Container = styled.div`
   width: 98%;
-  display: ${prop => prop.searchQueried? "flex" : "none"};
+  display: ${props => props.searchQueried? "flex" : "none"};
   flex-direction: column;
   justify-content: center;
   text-align: center;
@@ -82,7 +82,7 @@ const Container = styled.div`
 `;
 
 const NoMatches = styled.div`
-  display: ${props => props.isarrayempty};
+  display: ${props => props.display};
   width: 100%;
   height: 5rem;
   margin-top: 1rem;
@@ -178,8 +178,8 @@ class Records extends React.Component {
                     <Record key={match.id} match={match} contestants={this.props.contestants} />  
                   )
                 })}
-                <NoMatches isarrayempty={this.props.matches.length == 0 ? "flex" : "none"}>
-                  No matches found for this Tournament.
+                <NoMatches display={this.props.matches.length == 0 ? "flex" : "none"}>
+                  No matches were found for this Tournament.
                 </NoMatches>
             </div>
           </div>

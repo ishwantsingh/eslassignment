@@ -86,7 +86,6 @@ function Record(props) {
     )
   } else if(props.contestants && props.match) {
 
-    console.log("453",props.match)
     let contestantsArray = props.contestants;
 
     let contestant1 = contestantsArray.find(contestant => contestant.id === props.match.participants[0].id);

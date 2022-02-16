@@ -24,7 +24,7 @@ class App extends Component {
     this.state = {
       loading: false,
       searched: false,
-      matchApi: "https://api.eslgaming.com/play/v1/leagues/"
+      matchApi: "https://eslbackend.herokuapp.com/league/"
     };
   }
 
@@ -83,18 +83,15 @@ class App extends Component {
       this.props.requestFailed();
       window.alert("Error fetching data. Please try cheching the League ID you entered.")
       console.log("error", error)
-    
     });
-
   };
 
   render() {  
     const {data} = this.props;
-    console.log("data",data)
     return (
       <Container>
         <Headbar />        
-        <Homepage isLoading={data.loading} searchQueried={data.hasSearched} searchItems={this.searchItemHandler} tournamentDetails={data.tournamentDetails}
+        <Homepage isLoading={data.isLoading} searchQueried={data.hasSearched} searchItems={this.searchItemHandler} tournamentDetails={data.tournamentDetails}
          matches={data.matches}  contestants={data.contestants}/>
          <div style={{clear: "both"}}></div>
         <Footer />
@@ -104,7 +101,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("state",state)
   return {
     data: state
   };

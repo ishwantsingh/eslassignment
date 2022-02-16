@@ -4,6 +4,7 @@ import Records from './Records'
 import SearchBar from "./Searchbar";
 import EslBanner from "./EslBanner";
 import InfoPanels from "./InfoPanels";
+import Spinner from "./Spinner"; 
 
 const Container = styled.div`
   height: 100%;
@@ -59,9 +60,23 @@ const Container = styled.div`
   }
 `;
 
+const LoaderContainer = styled.div`
+  display: ${props => props.isLoading? "block" : "none"};  
+  width: 50vw;
+  height: 50vh;
+  margin: 0 auto;
+  text-align: center;
+  position: fixed;
+  z-index: 50;
+`
+
 function Homepage(props) {
+  console.log("is;loading", props,props.isLoading)
   return (
     <Container>
+      <LoaderContainer isLoading={props.isLoading}>
+        <Spinner />
+      </LoaderContainer>
       <br/>
       <div className="translucent">
         <div className="sub-container">
