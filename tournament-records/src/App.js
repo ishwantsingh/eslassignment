@@ -6,7 +6,7 @@ import Homepage from "./components/Homepage"
 import Headbar from "./components/Headbar"
 import Footer from "./components/Footer";
 
-import {getMatches,getMatchesComplete,getTournamentDetails,getTournamentDetailsComplete,getContestants,getContestantsComplete,requestCompleted,requestFailed} from "./redux/actionCreators"
+import {getMatches,getMatchesComplete,getTournamentDetails,getTournamentDetailsComplete,getContestants,getContestantsComplete,requestCompleted,requestFailed} from "./redux/actions/actionCreators"
 
 const Container = styled.div`
   width: 100%;
@@ -22,8 +22,6 @@ class App extends Component {
 
     //all data recieved from the API is stored in the redux state.
     this.state = {
-      loading: false,
-      searched: false,
       matchApi: "https://eslbackend.herokuapp.com/league/"
     };
   }
@@ -31,14 +29,13 @@ class App extends Component {
   searchItemHandler = async e => {
     let searchTerm = e.target.previousElementSibling.value;
 
-      var requestOptions = {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json'
-        },
-        redirect: 'follow'
-      };
-
+    var requestOptions = {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json'
+      },
+      redirect: 'follow'
+    };
 
     Promise.all([
       fetch(this.state.matchApi+`${searchTerm}/results`, requestOptions)

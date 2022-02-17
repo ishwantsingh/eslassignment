@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import Record from "./Record";
 import polygon from "../assets/polygon.svg"
 import Spinner from "./Spinner"
-import { componentsMounted } from "../redux/actionCreators";
+import { componentsMounted } from "../redux/actions/actionCreators";
 
 const Container = styled.div`
   width: 98%;
