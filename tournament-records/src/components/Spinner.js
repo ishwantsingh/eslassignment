@@ -12,7 +12,7 @@ const Container = styled.div`
   align-items: center;
   .loader {
     position: fixed;
-    left: 15vw;
+    left: 20vw;
     top: 8vh;
     z-index: 9999;
     display: flex;
