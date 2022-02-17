@@ -71,7 +71,6 @@ const LoaderContainer = styled.div`
 `
 
 function Homepage(props) {
-  console.log("is;loading", props,props.isLoading)
   return (
     <Container>
       <LoaderContainer isLoading={props.isLoading}>

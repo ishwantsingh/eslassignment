@@ -41,7 +41,6 @@ class App extends Component {
       this.props.isFetching(),
       fetch(this.state.matchApi+`${searchTerm}/results`, requestOptions)
         .then(res => {
-          console.log("should change state")
           this.props.getMatches();
           if (!res.ok) {
             throw new Error('Network response was not ok');
