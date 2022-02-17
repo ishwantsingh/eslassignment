@@ -1,4 +1,5 @@
-import {GET_MATCHES,
+import {IS_FETCHING,
+    GET_MATCHES,
     GET_MATCHES_COMPLETE,
     GET_TOURNAMENT_DETAILS,
     GET_TOURNAMENT_DETAILS_COMPLETE,
@@ -17,6 +18,11 @@ const initialState = {
   
 export default function stateReducer(state = initialState, action) {
     switch (action.type) {
+        case IS_FETCHING:
+            return {
+                ...state,
+                isLoading: true,
+            }
         case GET_MATCHES:
             return {
                 ...state,

@@ -6,7 +6,7 @@ import Homepage from "./components/Homepage"
 import Headbar from "./components/Headbar"
 import Footer from "./components/Footer";
 
-import {getMatches,getMatchesComplete,getTournamentDetails,getTournamentDetailsComplete,getContestants,getContestantsComplete,requestCompleted,requestFailed} from "./redux/actions/actionCreators"
+import {isFetching,getMatches,getMatchesComplete,getTournamentDetails,getTournamentDetailsComplete,getContestants,getContestantsComplete,requestCompleted,requestFailed} from "./redux/actions/actionCreators"
 
 const Container = styled.div`
   width: 100%;
@@ -38,8 +38,10 @@ class App extends Component {
     };
 
     Promise.all([
+      this.props.isFetching(),
       fetch(this.state.matchApi+`${searchTerm}/results`, requestOptions)
         .then(res => {
+          console.log("should change state")
           this.props.getMatches();
           if (!res.ok) {
             throw new Error('Network response was not ok');
@@ -104,6 +106,7 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
+    isFetching: () => dispatch(isFetching()),
     getMatches: () => dispatch(getMatches()),
     getMatchesComplete: (matches) => dispatch(getMatchesComplete(matches)),
     getTournamentDetails: () => dispatch(getTournamentDetails()),
@@ -111,7 +114,7 @@ const mapDispatchToProps = dispatch => {
     getContestants: () => dispatch(getContestants()),
     getContestantsComplete: (contestants) => dispatch(getContestantsComplete(contestants)),
     requestCompleted: () => dispatch(requestCompleted()),
-    requestFailed: () => dispatch(requestFailed())
+    requestFailed: () => dispatch(requestFailed()),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(App);
